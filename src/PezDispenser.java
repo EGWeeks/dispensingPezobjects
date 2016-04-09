@@ -26,6 +26,10 @@ public class PezDispenser {
 		return mPezCount;
 	}
 	
+	public boolean isEmpty() {
+		return mPezCount == 0;
+	}
+	
 	public String getCharacterName() {
 		return mCharacterName;
 	}
