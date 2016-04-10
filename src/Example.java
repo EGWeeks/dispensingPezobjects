@@ -14,5 +14,17 @@ public class Example {
 		if(!dispenser.isEmpty()) {
 			System.out.printf("Pez Dispenser has %s", dispenser.getPezCount());
 		}
+		while (dispenser.dispense()) {
+			System.out.println("CHOMP!");
+		}
+		try {
+			dispenser.load(400);
+			System.out.println("This will never happen");
+		} catch(IllegalArgumentException iae) {
+			System.out.println("Whoa there!");
+			System.out.printf("The error was: %s\n", iae.getMessage());
+		}
+		
+		System.out.println(dispenser.getPezCount());
 	}
 }

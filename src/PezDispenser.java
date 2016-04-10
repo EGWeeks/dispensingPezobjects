@@ -18,8 +18,25 @@ public class PezDispenser {
 		mPezCount = 0;
 	}
 	
+	public boolean dispense() {
+		boolean wasDispensed = false;
+		if (!isEmpty()) {
+			mPezCount--;
+			wasDispensed = true;
+		}
+		return wasDispensed;
+	}
+	
 	public void load() {
-		mPezCount = MAX_PEZ;
+		load(MAX_PEZ);
+	}
+	
+	public void load(int pezAmount) {
+		int newAmount = mPezCount + pezAmount;
+		if (newAmount > MAX_PEZ) {
+			throw new IllegalArgumentException("Too many PEZ!!!");
+		}
+		mPezCount = newAmount;
 	}
 	
 	public int getPezCount() {
